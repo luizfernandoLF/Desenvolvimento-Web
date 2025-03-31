@@ -1,0 +1,24 @@
+.caixa {
+    font-size: larger;
+    border-radius: 30px;
+    position: absolute;
+    left: 1100px;
+    top: 100px;
+    border: 5px solid black;
+    width: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: transparent;
+}
+
+.imagem {
+    background-image: url(https://wallpapers.com/images/high/silent-hill-1920-x-1080-background-3cpcmsyqpmiaq3ce.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.posicao{
+    padding-left: 1000px;
+}
