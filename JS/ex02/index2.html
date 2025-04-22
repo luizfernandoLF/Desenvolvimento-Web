@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jokenpô</title>
+</head>
+<body>
+    <script>
+        function iniciarJogo() {
+            let pontuacao = 0;
+            const opcoes = ["Papel", "Pedra", "Tesoura"];
+
+            function obterJogadaComputador() {
+                return Math.floor(Math.random() * 3);
+            }
+
+            function determinarResultado(jogador, computador) {
+                if (jogador === computador) {
+                    return "empate";
+                } else if (
+                    (jogador === 0 && computador === 1) || // Papel > Pedra
+                    (jogador === 1 && computador === 2) || // Pedra > Tesoura
+                    (jogador === 2 && computador === 0)    // Tesoura > Papel
+                ) {
+                    return "vitoria";
+                } else {
+                    return "derrota";
+                }
+            }
+
+            function exibirMenuJogada() {
+                console.log("Escolha sua jogada:");
+                console.log("1 - Papel");
+                console.log("2 - Pedra");
+                console.log("3 - Tesoura");
+            }
+
+            console.log("Bem-vindo ao jogo Jokenpô!");
+
+            while (true) {
+                exibirMenuJogada();
+                let jogadaUsuario = parseInt(prompt());
+
+                if (jogadaUsuario < 1 || jogadaUsuario > 3 || isNaN(jogadaUsuario)) {
+                    console.log("Jogada inválida! Você perdeu.");
+                    console.log(`Sua pontuação final foi: ${pontuacao}`);
+                    break;
+                }
+
+                jogadaUsuario -= 1;
+                const jogadaComputador = obterJogadaComputador();
+
+                console.log(`O computador jogou ${opcoes[jogadaComputador]}`);
+
+                const resultado = determinarResultado(jogadaUsuario, jogadaComputador);
+
+                if (resultado === "empate") {
+                    console.log("A rodada empatou!");
+                } else if (resultado === "vitoria") {
+                    console.log("Você ganhou!");
+                    pontuacao++;
+                } else {
+                    console.log(`Você perdeu! A sua pontuação foi ${pontuacao}`);
+                    break;
+                }
+            }
+        }
+
+        iniciarJogo();
+    </script>
+</body>
+</html>
