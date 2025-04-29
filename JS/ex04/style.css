@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="number"] {
+    padding: 5px;
+    width: 100px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #cc00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 15px;
+}
+
+.result div {
+    margin: 5px 0;
+}
