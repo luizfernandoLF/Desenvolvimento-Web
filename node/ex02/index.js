@@ -1,8 +1,13 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const dotenv = require('dotenv');
-const {createLink} = require('./links');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
+import { createLink } from './links.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -16,6 +21,7 @@ if (!dir) {
 
 const server = http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url);
+
   if (urlPath === '/') {
     fs.readdir(dir, (err, files) => {
       if (err) {
@@ -23,7 +29,7 @@ const server = http.createServer((req, res) => {
         return res.end('Erro ao ler o diretório: ' + err.message);
       }
 
-      let html = {dir};
+      let html = `<h1>Arquivos de ${dir}</h1>\n`;
       files.forEach(file => {
         html += createLink(file);
       });
@@ -42,7 +48,7 @@ const server = http.createServer((req, res) => {
 
       res.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' });
       res.write(`<pre>${data}</pre>`);
-      res.write(`<br><a href="/">Voltar</a>`);
+      res.write(`<br><a href="/">voltar</a>`);
       res.end();
     });
   }
