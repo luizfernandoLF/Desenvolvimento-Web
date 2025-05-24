@@ -1,0 +1,67 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#space {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/png/Background/starBackground.png");
+  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#ship {
+  position: absolute;
+  width: 80px;
+}
+#hud {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+#lives img {
+  width: 30px;
+}
+
+#game-over {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 20px;
+  z-index: 20;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.bullet{
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  background: yellow;
+  z-index: 5;
+}
