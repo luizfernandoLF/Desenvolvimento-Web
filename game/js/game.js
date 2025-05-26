@@ -19,14 +19,12 @@ const keyStates = {
 };
 
 function updateShipDirection() {
-  // Se o jogo acabou, a aparência da nave é controlada por ship.setFinalDamageState()
-  // e não deve ser alterada aqui. Apenas garantimos a direção lógica como 'parada'.
+
   if (gameOver) {
-    ship.direction = 1; // Define a direção lógica como parada, mas não mexe na imagem.
+    ship.direction = 1;
     return;
   }
 
-  // Se estiver pausado (mas não game over), mostra a nave parada (normal, não danificada pelo pause)
   if (paused) {
     ship.changeDirection(1);
     return;
@@ -44,7 +42,7 @@ function updateShipDirection() {
 
 function init() {
   hud.reset();
-  ship.resetStateForNewGame(); // Usa o método de reset da nave
+  ship.resetStateForNewGame(); 
   ship.element.style.left = `${getTAMX() / 2 - 50}px`;
 
   paused = true;
@@ -53,7 +51,7 @@ function init() {
   spacebarPressionadaAtualmente = false;
   keyStates.arrowLeft = false;
   keyStates.arrowRight = false;
-  // A imagem inicial já é definida por ship.resetStateForNewGame()
+ 
 
   gameOverEl.classList.add("hidden");
   setInterval(run, 1000 / FPS);
@@ -65,12 +63,12 @@ function init() {
 }
 
 function checkCollisions() {
-  // Não faz nada se o jogo já terminou (evita múltiplas chamadas se colisões ocorrerem rápido)
+
   if (gameOver) return;
 
   const shipRect = ship.element.getBoundingClientRect();
   document.querySelectorAll(".enemy-ship").forEach((obst) => {
-    // Verifica se o obstáculo ainda está no DOM (pode ter sido removido por outra colisão no mesmo frame)
+ 
     if (!obst.parentNode) return;
 
     const obstRect = obst.getBoundingClientRect();
@@ -82,21 +80,19 @@ function checkCollisions() {
     );
 
     if (intersect) {
-      obst.remove(); // Remove o obstáculo
+      obst.remove();
       const remaining = hud.loseLife();
 
       if (remaining > 0) {
-        ship.damage(); // Mostra dano temporário se ainda tem vidas
+        ship.damage(); 
       } else {
         // Perdeu a última vida
         paused = true;
         gameOver = true;
-        ship.setFinalDamageState(); // Define a aparência final da nave como danificada
+        ship.setFinalDamageState(); 
 
         keyStates.arrowLeft = false;
         keyStates.arrowRight = false;
-        // Não é necessário chamar updateShipDirection para mudar a sprite,
-        // ship.setFinalDamageState() já cuidou disso.
         gameOverEl.classList.remove("hidden");
       }
     }
@@ -115,7 +111,7 @@ window.addEventListener("keydown", (e) => {
         keyStates.arrowLeft = false;
         keyStates.arrowRight = false;
       }
-      updateShipDirection(); // Para mostrar nave parada se pausou, ou direcional se despausou
+      updateShipDirection(); 
     }
     return;
   }
