@@ -1,1 +1,1 @@
-esse se refere ao exercício 2 do slide ExpTS
+esse se refere a parte 3 exercício 2 do slide ExpTS
