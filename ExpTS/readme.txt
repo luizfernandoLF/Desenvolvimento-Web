@@ -1,2 +1,3 @@
-até o exercício 5 pronto do slide express básico pronto, agora alterei a estrutura de pastas das atividades por que estava dando conflito,
-antes as atividades ficavam em ExpTS/express, agora a pasta express não existe mais e as atividades ficam dentro de ExpTS/ mesmo
+até o exercício 3 está pronto e na pasta ExpTS/express
+apartir do exercício 5 do slide express básico, alterei a estrutura de pastas das atividades por que estava dando conflito,
+agora as atividades apartir do exercício 5 ficam apenas em ExpTS e não mais em ExpTS/express
