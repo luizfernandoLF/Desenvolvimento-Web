@@ -49,7 +49,7 @@ export const uai = (req: Request, res: Response) => {
 //action pra rota /hb1
 export const hb1 = (req: Request, res: Response) => {
   res.render('hb1', { 
-    mensagem: 'Olá, você está aprendendo Express + HBS!',
+    mensagem: 'HandleBar1',
     // layout: false
   });
 };
