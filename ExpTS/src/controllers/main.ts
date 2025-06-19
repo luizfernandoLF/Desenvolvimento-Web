@@ -50,7 +50,7 @@ export const uai = (req: Request, res: Response) => {
 export const hb1 = (req: Request, res: Response) => {
   res.render('hb1', { 
     mensagem: 'Olá, você está aprendendo Express + HBS!',
-    layout: false
+    // layout: false
   });
 };
 
@@ -60,7 +60,7 @@ export const hb2 = (req: Request, res: Response) => {
     poweredByNodejs: true,
     name: 'Express',
     type: 'Framework',
-    layout: false
+    // layout: false
   });
 };
 
@@ -74,7 +74,7 @@ export const hb3 = (req: Request, res: Response) => {
   ];
   res.render('hb3', { 
     profes,
-    layout: false
+    // layout: false
   });
 };
 
@@ -91,7 +91,7 @@ export const hb4 = (req: Request, res: Response) => {
   ];
   res.render('hb4', { 
     technologies,
-    layout: false
+    // layout: false
   });
 };
 
