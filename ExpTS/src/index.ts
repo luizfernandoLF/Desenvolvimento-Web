@@ -16,6 +16,17 @@ app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", `./src/views`);
 
+//ex 6
+app.engine("handlebars", engine({
+
+  helpers: {
+    listNodejsTechnologies: require(`${process.cwd()}/src/views/helpers/helpers`).listNodejsTechnologies
+  }
+}));
+
+app.set("view engine", "handlebars");
+app.set("views", `./src/views`);
+
 app.use(router); 
 
 app.listen(PORT, () => { 
