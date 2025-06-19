@@ -1,4 +1,4 @@
 
 (consegui resolver os conflitos)
 
-exercício 7 completo slide express básico
+exercício 8 completo slide express básico
