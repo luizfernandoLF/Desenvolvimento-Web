@@ -12,5 +12,3 @@ export function listNodejsTechnologies(technologies: Technology[]): string {
   return `<ul>${listItems.join('')}</ul>`;
 }
 
-// Se você tiver outros helpers no futuro, pode exportá-los aqui também:
-// export function outroHelper(data: any): string { ... }
