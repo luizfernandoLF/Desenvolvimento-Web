@@ -5,8 +5,10 @@ import router from "./router/router";
 import { engine } from 'express-handlebars';
 import path from 'path'; 
 import sass from 'sass'; 
+import validateEnv from "./utils/validateEnv";
 
 dotenv.config();
+validateEnv();
 
 const app = express();
 const PORT = process.env.PORT || 3333;
