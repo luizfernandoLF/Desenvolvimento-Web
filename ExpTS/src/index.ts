@@ -29,7 +29,6 @@ app.set("views", `./src/views/main`);
 
 app.use('/styles', (req, res, next) => {
     if (req.path.endsWith('.css')) {
-        // Caminho para o arquivo SCSS original (dentro de src/views/main/styles)
         const scssPath = path.join(process.cwd(), 'src', 'views', 'main', 'styles', path.basename(req.path, '.css') + '.scss');
 
         sass.render({

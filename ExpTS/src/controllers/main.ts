@@ -95,6 +95,14 @@ export const hb4 = (req: Request, res: Response) => {
   });
 };
 
+export const about = (req: Request, res: Response) => {
+  res.render('about', {
+    title: 'Sobre Space Shooter', 
+    layout: 'main' 
+  });
+};
+
+
 export default {
   index,
   teste,
@@ -106,5 +114,6 @@ export default {
   hb1,
   hb2,
   hb3,
-  hb4
+  hb4,
+  about
 };

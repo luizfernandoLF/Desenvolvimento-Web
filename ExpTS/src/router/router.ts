@@ -14,5 +14,6 @@ router.get('/hb1', mainController.hb1); // Rota do Exercício 5
 router.get('/hb2', mainController.hb2); // Rota do Exercício 5
 router.get('/hb3', mainController.hb3); // Rota do Exercício 5
 router.get('/hb4', mainController.hb4); // Rota do Exercício 6
+router.get('/about', mainController.about);
 
 export default router;
