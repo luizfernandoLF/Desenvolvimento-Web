@@ -92,7 +92,7 @@ export const remove = async (req: Request, res: Response) => {
       return res.status(409).send('Não é possível apagar este curso. Existem usuários matriculados nele.');
     }
 
-    await majorService.deleteMajor(id); // Chama a função do serviço para deletar
+    await majorService.deleteMajor(id); 
     res.redirect('/major');
   } catch (error) {
     console.error('Erro ao remover Major:', error);

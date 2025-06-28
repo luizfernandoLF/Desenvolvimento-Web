@@ -20,7 +20,6 @@ router.get('/hb4', mainController.hb4); // Rota do Exercício 6
 router.get('/about', mainController.about);
 
 
-// ROTAS PARA O CRUD DE MAJOR - COM CASTS 
 router.get('/major', majorController.index as unknown as RequestHandler);             //lista todos os cursos
 router.all('/major/create', majorController.create as unknown as RequestHandler);     //exibe formulário e processa criação
 router.get('/major/read/:id', majorController.read as unknown as RequestHandler);     //exibe detalhes de um curso
