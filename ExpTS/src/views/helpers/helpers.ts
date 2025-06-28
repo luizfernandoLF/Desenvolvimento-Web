@@ -12,3 +12,7 @@ export function listNodejsTechnologies(technologies: Technology[]): string {
   return `<ul>${listItems.join('')}</ul>`;
 }
 
+export function eq(arg1: any, arg2: any): boolean {
+  return arg1 === arg2;
+}
+

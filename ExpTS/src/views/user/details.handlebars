@@ -1,0 +1,13 @@
+<h1>Detalhes do Usuário</h1>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{user.fullname}}</h5>
+    <p class="card-text">ID: {{user.id}}</p>
+    <p class="card-text">Email: {{user.email}}</p>
+    <p class="card-text">Curso: {{user.major.code}} - {{user.major.name}}</p>
+    <p class="card-text">Criado em: {{user.createdAt}}</p>
+    <p class="card-text">Última atualização: {{user.updatedAt}}</p>
+    <a href="/user/update/{{user.id}}" class="btn btn-warning">Editar</a>
+    <a href="/user" class="btn btn-secondary">Voltar para a Lista</a>
+  </div>
+</div>

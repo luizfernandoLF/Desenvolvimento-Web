@@ -1,0 +1,51 @@
+<h1>Lista de Usuários</h1>
+<a href="/user/create" class="btn btn-primary mb-3">Novo Usuário</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome Completo</th>
+      <th>Email</th>
+      <th>Curso</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td>{{fullname}}</td>
+      <td>{{email}}</td>
+      <td>{{major.code}} - {{major.name}}</td> <td>
+        <a href="/user/read/{{id}}" class="btn btn-info btn-sm">Ver</a>
+        <a href="/user/update/{{id}}" class="btn btn-warning btn-sm">Editar</a>
+        <button class="btn btn-danger btn-sm" onclick="confirmDeleteUser('{{id}}', '{{fullname}}')">Apagar</button>
+      </td>
+    </tr>
+    {{else}}
+    <tr>
+      <td colspan="4">Nenhum usuário cadastrado.</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  function confirmDeleteUser(userId, userName) {
+    if (confirm(`Deseja realmente apagar o usuário ${userName}?`)) {
+      fetch(`/user/remove/${userId}`, {
+        method: 'POST',
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.reload();
+        } else {
+          console.error('Erro ao deletar Usuário:', response.statusText);
+          alert('Erro ao deletar o usuário. Verifique o console.');
+        }
+      })
+      .catch(error => {
+        console.error('Erro de rede ao deletar Usuário:', error);
+        alert('Erro de rede ao deletar o usuário.');
+      });
+    }
+  }
+</script>

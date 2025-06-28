@@ -1,0 +1,65 @@
+<h1>Lista de Cursos</h1>
+<a href="/major/create" class="btn btn-primary mb-3">Novo Curso</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each majors}}
+    <tr>
+      <td>{{code}}</td>
+      <td>{{name}}</td>
+      <td>{{description}}</td>
+      <td>
+        <a href="/major/read/{{id}}" class="btn btn-info btn-sm">Ver</a>
+        <a href="/major/update/{{id}}" class="btn btn-warning btn-sm">Editar</a>
+        <button class="btn btn-danger btn-sm" onclick="confirmDelete('{{id}}', '{{name}}')">Apagar</button>
+      </td>
+    </tr>
+    {{else}}
+    <tr>
+      <td colspan="4">Nenhum curso cadastrado.</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  function confirmDelete(majorId, majorName) {
+    if (confirm(`Deseja realmente apagar o curso ${majorName}?`)) {
+      fetch(`/major/remove/${majorId}`, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+      })
+      .then(response => {
+        if (response.ok) { 
+          console.log('Major deletado com sucesso');
+          window.location.reload(); 
+        } else {
+          response.text().then(errorMessage => { 
+            console.error('Erro ao deletar Major:', response.status, errorMessage); 
+            if (response.status === 409) {
+                alert(errorMessage); 
+            } else {
+                alert(`Erro ao deletar o curso: ${errorMessage || response.statusText}. Verifique o console.`);
+            }
+          }).catch(textError => {
+            console.error('Erro ao ler a mensagem de erro da resposta:', textError);
+            alert(`Erro desconhecido ao deletar o curso (Status: ${response.status}). Verifique o console.`);
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Erro de rede ao deletar Major:', error);
+        alert('Erro de rede ao deletar o curso.');
+      });
+    }
+  }
+</script>

@@ -1,0 +1,25 @@
+<h1>Criar Novo Curso</h1>
+{{#if error}}
+<div class="alert alert-danger" role="alert">
+  {{error}}
+</div>
+{{/if}}
+<form action="/major/create" method="POST">
+  </form>
+
+<form action="/major/create" method="POST">
+  <div class="mb-3">
+    <label for="code" class="form-label">Código</label>
+    <input type="text" class="form-control" id="code" name="code" required maxlength="4">
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="name" name="name" required maxlength="100">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Descrição (Opcional)</label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Salvar Curso</button>
+  <a href="/major" class="btn btn-secondary">Cancelar</a>
+</form>

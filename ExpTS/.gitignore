@@ -2,3 +2,5 @@ node_modules/
 build/
 .env
 access_logs/
+
+/src/generated/prisma
