@@ -1,0 +1,31 @@
+<h1>Criar Novo Usuário</h1>
+{{#if error}}
+<div class="alert alert-danger" role="alert">
+  {{error}}
+</div>
+{{/if}}
+<form action="/user/create" method="POST">
+  <div class="mb-3">
+    <label for="fullname" class="form-label">Nome Completo</label>
+    <input type="text" class="form-control" id="fullname" name="fullname" value="{{oldData.fullname}}" required maxlength="100">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" value="{{oldData.email}}" required maxlength="100">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Senha</label>
+    <input type="password" class="form-control" id="password" name="password" value="{{oldData.password}}" required maxlength="60">
+  </div>
+  <div class="mb-3">
+    <label for="major_id" class="form-label">Curso</label>
+    <select class="form-select" id="major_id" name="major_id" required>
+      <option value="">Selecione um curso</option>
+      {{#each majors}}
+      <option value="{{id}}" {{#if (eq id ../oldData.major_id)}}selected{{/if}}>{{code}} - {{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Salvar Usuário</button>
+  <a href="/user" class="btn btn-secondary">Cancelar</a>
+</form>

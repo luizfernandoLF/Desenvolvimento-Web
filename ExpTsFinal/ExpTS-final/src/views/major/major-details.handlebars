@@ -1,0 +1,23 @@
+<h1>Detalhes do Curso</h1>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{major.name}} ({{major.code}})</h5>
+    <p class="card-text">ID: {{major.id}}</p>
+    <p class="card-text">Descrição: {{major.description}}</p>
+    <p class="card-text">Criado em: {{major.createdAt}}</p>
+    <p class="card-text">Última atualização: {{major.updatedAt}}</p>
+    
+    <a href="/major/update/{{major.id}}" class="btn btn-warning">Editar</a>
+    
+    <button type="button" class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteConfirmationModal"
+            data-item-id="{{major.id}}"
+            data-item-name="{{major.name}}"
+            data-delete-url="/major/remove/">
+      Apagar
+    </button>
+    
+    <a href="/major" class="btn btn-secondary">Voltar para a Lista</a>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<h1>Lista de Usuários</h1>
+<a href="/user/create" class="btn btn-primary mb-3">Novo Usuário</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome Completo</th>
+      <th>Email</th>
+      <th>Curso</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td>{{fullname}}</td>
+      <td>{{email}}</td>
+      <td>{{major.code}} - {{major.name}}</td>
+      <td>
+        <a href="/user/read/{{id}}" class="btn btn-info btn-sm">Ver</a>
+        <a href="/user/update/{{id}}" class="btn btn-warning btn-sm">Editar</a>
+        <button type="button" class="btn btn-danger btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteConfirmationModal"
+                data-item-id="{{id}}"
+                data-item-name="{{fullname}}"
+                data-delete-url="/user/remove/">
+          Apagar
+        </button>
+      </td>
+    </tr>
+    {{else}}
+    <tr>
+      <td colspan="4">Nenhum usuário cadastrado.</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
